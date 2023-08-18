@@ -2,7 +2,7 @@ import { useState } from "react";
 import Task from "./Task";
 import { useSelector } from "react-redux";
 const TaskList = () => {
-  const todos = useSelector((state)=> state.todo);
+  const todos = useSelector((state) => state.todo.todos);
   return (
     <ul className="border-slate-200 rounded-md divide-y my-5 py-2">
       {todos.map((todo, index) => (
