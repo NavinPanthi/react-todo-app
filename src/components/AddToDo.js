@@ -8,6 +8,7 @@ const AddToDo = () => {
     e.preventDefault();
     if (!title || title === "") return; //if the input is empty do nothing and don't add to list of todos
     dispatch(todoActions.addToDo(title));
+    dispatch(todoActions.incNextId());
   };
   return (
     <div className="my-3">
