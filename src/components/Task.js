@@ -12,6 +12,11 @@ const Task = ({ id, title, completed }) => {
   const handleDelete = (e) => {
     dispatch(todoActions.deleteToDo(id));
   };
+  const handleCheck = (e) => {
+    dispatch(
+      todoActions.toggleCompletedOfTodo({ checked: e.target.checked, id })
+    );
+  };
 
   let todoContent;
   if (isEditing) {
@@ -49,7 +54,7 @@ const Task = ({ id, title, completed }) => {
   }
   return (
     <div className="flex flex-row">
-      <input type="checkbox" checked={completed} onChange={handleChange} />
+      <input type="checkbox" checked={completed} onChange={handleCheck} />
       {todoContent}
       <button
         className="bg-rose-600 text-sm w-1/6  py-1 text-white rounded-md hover:bg-rose-700 ring-indigo-900 text-semibold focus:ring-2"

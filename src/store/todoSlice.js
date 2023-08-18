@@ -25,6 +25,13 @@ const todoSlice = createSlice({
         editingToDo.title = title;
       }
     },
+    toggleCompletedOfTodo: (state, action) => {
+      const {checked, id} = action.payload;
+      const completingToDo = state.todos.find((todo)=>todo.id === id);
+      if(completingToDo){
+        completingToDo.completed= checked ? true :false ;
+      }
+    },
   },
 });
 export const todoActions = todoSlice.actions;
